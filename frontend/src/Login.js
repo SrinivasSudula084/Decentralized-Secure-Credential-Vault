@@ -5,84 +5,8 @@ import vaultImage from "./vault-image.jpeg";
 import securityImage from "./security1.jpeg";
 import encryptionImage from "./security2.jpeg";
 import "./Login.css";
+import { contractAddress,contractABI  } from "../config/contractConfig";
 
-const contractAddress = "0x84EB872BEE4d2323643A848B5De1f17aB43C69d0";
-const contractABI = [
-  {
-    "inputs": [],
-    "name": "generateNonce",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getCredentials",
-    "outputs": [
-      {
-        "components": [
-          {
-            "internalType": "string",
-            "name": "ipfsHash",
-            "type": "string"
-          },
-          {
-            "internalType": "string",
-            "name": "fileType",
-            "type": "string"
-          },
-          {
-            "internalType": "uint256",
-            "name": "timestamp",
-            "type": "uint256"
-          }
-        ],
-        "internalType": "struct CredentialVault.Credential[]",
-        "name": "",
-        "type": "tuple[]"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getNonce",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "_ipfsHash",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "_fileType",
-        "type": "string"
-      }
-    ],
-    "name": "storeCredential",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  }
-];
 
 
 function Login() {

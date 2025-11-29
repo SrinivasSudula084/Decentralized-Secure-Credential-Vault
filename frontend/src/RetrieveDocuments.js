@@ -2,36 +2,7 @@ import React, { useState } from "react";
 import { ethers } from "ethers";
 import CryptoJS from "crypto-js";
 import "./RetrieveDocuments.css";
-
-const contractAddress = "0x84EB872BEE4d2323643A848B5De1f17aB43C69d0";
-const contractABI = [
-  {
-    "inputs": [],
-    "name": "getDocuments",
-    "outputs": [
-      {
-        "components": [
-          { "internalType": "string", "name": "ipfsHash", "type": "string" },
-          { "internalType": "string", "name": "fileName", "type": "string" },
-          { "internalType": "string", "name": "fileType", "type": "string" },
-          { "internalType": "uint256", "name": "timestamp", "type": "uint256" }
-        ],
-        "internalType": "struct SecureVault.Document[]",
-        "name": "",
-        "type": "tuple[]"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "index", "type": "uint256" }],
-    "name": "deleteDocument",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  }
-];
+import { contractAddress,contractABI  } from "../config/contractConfig";
 
 const RetrieveDocuments = () => {
   const [userAddress, setUserAddress] = useState(null);

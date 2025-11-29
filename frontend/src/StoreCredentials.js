@@ -2,48 +2,11 @@ import React, { useState } from "react";
 import { ethers } from "ethers";
 import CryptoJS from "crypto-js";
 import "./StoreCredentials.css";
+import { contractAddress,contractABI  } from "../config/contractConfig";
 
 const PINATA_API_KEY = process.env.REACT_APP_PINATA_API_KEY;
 const PINATA_SECRET_API_KEY = process.env.REACT_APP_PINATA_SECRET_KEY;
 
-const contractAddress = "0x84EB872BEE4d2323643A848B5De1f17aB43C69d0";
-const contractABI = [
-  {
-    inputs: [],
-    name: "generateNonce",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "getCredentials",
-    outputs: [
-      {
-        components: [
-          { internalType: "string", name: "ipfsHash", type: "string" },
-          { internalType: "string", name: "fileType", type: "string" },
-          { internalType: "uint256", name: "timestamp", type: "uint256" },
-        ],
-        internalType: "struct CredentialVault.Credential[]",
-        name: "",
-        type: "tuple[]",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "string", name: "_ipfsHash", type: "string" },
-      { internalType: "string", name: "_fileType", type: "string" },
-    ],
-    name: "storeCredential",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-];
 
 const uploadToPinata = async (data) => {
   const url = "https://api.pinata.cloud/pinning/pinJSONToIPFS";

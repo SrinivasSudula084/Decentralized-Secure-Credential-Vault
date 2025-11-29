@@ -3,25 +3,11 @@ import { ethers } from "ethers";
 import CryptoJS from "crypto-js";
 import "./StoreDocuments.css";
 
+import { contractAddress,contractABI  } from "../config/contractConfig";
 
 // Pinata API Credentials
 const PINATA_API_KEY = process.env.REACT_APP_PINATA_API_KEY;
 const PINATA_SECRET_API_KEY = process.env.REACT_APP_PINATA_SECRET_KEY;
-
-const contractAddress = "0x84EB872BEE4d2323643A848B5De1f17aB43C69d0";
-const contractABI = [
-  {
-    "inputs": [
-      { "internalType": "string", "name": "_ipfsHash", "type": "string" },
-      { "internalType": "string", "name": "_fileName", "type": "string" },
-      { "internalType": "string", "name": "_fileType", "type": "string" }
-    ],
-    "name": "storeDocument",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  }
-];
 
 const uploadToPinata = async (file) => {
   const url = "https://api.pinata.cloud/pinning/pinFileToIPFS";

@@ -3,37 +3,9 @@ import { ethers } from "ethers";
 import CryptoJS from "crypto-js";
 import axios from "axios";
 import "./RetrieveCredentials.css"; // Import CSS
+import { contractAddress,contractABI  } from "../config/contractConfig";
 
 const PINATA_GATEWAY = "https://gateway.pinata.cloud/ipfs/";
-
-const contractAddress = "0x84EB872BEE4d2323643A848B5De1f17aB43C69d0";
-const contractABI = [
-  {
-    inputs: [],
-    name: "getCredentials",
-    outputs: [
-      {
-        components: [
-          { internalType: "string", name: "ipfsHash", type: "string" },
-          { internalType: "string", name: "fileType", type: "string" },
-          { internalType: "uint256", name: "timestamp", type: "uint256" },
-        ],
-        internalType: "struct CredentialVault.Credential[]",
-        name: "",
-        type: "tuple[]",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "index", type: "uint256" }],
-    name: "deleteCredential",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-];
 
 const RetrieveCredentials = () => {
   const [userAddress, setUserAddress] = useState(null);
